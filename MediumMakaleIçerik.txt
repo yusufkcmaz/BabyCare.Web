@@ -1,0 +1,16 @@
+---------MongoDb---------
+
+1-[BsonID]
+2-[IDataBaseSettings]
+3-[appsettings.json Uygulama Ayarlarý]
+4-[(Program.cs)MongoDB Settings konfigure-baðlantý ayarlarý]
+
+
+
+SQL=(S) VE MongoDb=(M) kavram karþýlaþtýrmasý.
+--
+*(S)Database <---> (M)DatabaseVeritabaný kavramý aynýdýr.
+*(S)Table (Tablo)<--->(M)Collection (Koleksiyon)	SQL'deki tablo, MongoDB'de koleksiyon olarak adlandýrýlýr.
+*[(S)Row (Satýr)<--->(M)Document (Doküman)	SQL'deki her satýr, MongoDB'de bir JSON dokümaný olarak saklanýr.
+yani fieldlarýn birleþimi totalde bir dökümandýr nedeni sql deki gibi satýr olarak çýkmaz bir çýktý olarak çýkar(Json)]
+*(S)Column (Sütun)<--->(M)Field (Alan )	SQL'deki sütun, MongoDB'de bir alan (field) ol

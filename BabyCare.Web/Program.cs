@@ -1,6 +1,26 @@
+using BabyCare.Web.DataAccess.Settings;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+//MongoDB Settings konfigure-baðlantý ayarlarý
+builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("DatabaseSettings"));
+//singleton
+builder.Services.AddSingleton<IDataBaseSettings>(sp =>
+
+{
+    return sp.GetRequiredService<IOptions<DatabaseSettings>>().Value;
+});
+
+
+
+//singleton
+
+
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

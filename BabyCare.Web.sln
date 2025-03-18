@@ -5,6 +5,11 @@ VisualStudioVersion = 17.12.35527.113 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabyCare.Web", "BabyCare.Web\BabyCare.Web.csproj", "{1C2905FF-B8C9-462F-8D3C-0763A2B131A5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{724EEAD3-E022-4DCC-A9F3-80543428C37B}"
+	ProjectSection(SolutionItems) = preProject
+		MediumMakaleIçerik.txt = MediumMakaleIçerik.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -1,10 +1,14 @@
 using BabyCare.Web.DataAccess.Settings;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+//AutoMapper Konfigürasyon
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 //MongoDB Settings konfigure-baðlantý ayarlarý
 builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("DatabaseSettings"));

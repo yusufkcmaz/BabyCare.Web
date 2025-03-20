@@ -1,5 +1,6 @@
 using BabyCare.Web.DataAccess.Settings;
 using BabyCare.Web.Services.InstructorServices;
+using BabyCare.Web.Services.ProductServices;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System.Reflection;
@@ -17,6 +18,7 @@ builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection(na
 
 //Service Konfigürasyonu.
 builder.Services.AddScoped<IInstructorService , InstructorService>();
+builder.Services.AddScoped<IProductService ,ProductService>();
 
 
 

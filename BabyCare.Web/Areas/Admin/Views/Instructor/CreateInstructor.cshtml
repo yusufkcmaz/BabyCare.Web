@@ -1,29 +1,55 @@
-﻿
-
-@model CreateInstructorDto
+﻿@model CreateInstructorDto
 @{
-    ViewData["Title"] = "CreateInstructor";
+    ViewData["Title"] = "Yeni Eğitmen Ekle";
 }
 
+<div class="container mt-4">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-center text-primary mb-4">Yeni Eğitmen Ekle</h3>
 
-<h3>Yeni Eğitmen Ekle</h3>
+        <form method="post" class="row g-3">
+            <div class="col-md-12 text-center">
+                <img id="profilePreview" src="https://via.placeholder.com/100"
+                     class="rounded-circle border shadow-sm"
+                     style="height: 100px; width: 100px; object-fit: cover;" />
+            </div>
 
-<form method="post">
-    <label>Profil Resmi</label>
-    <input type="text" asp-for="ImageUrl" class="form-control" />
-    <br />
-    <label>Ad</label>
-    <input type="text" asp-for="FirstName" class="form-control" />
-    <br />
-    <label>Soyad</label>
-    <input type="text" asp-for="LastName" class="form-control" />
-    <br />
-    <label>Unvan</label>
-    <input type="text" asp-for="Title" class="form-control" />
-    <br />
+            <div class="col-md-12">
+                <label class="form-label fw-bold">Profil Resmi URL</label>
+                <input type="text" asp-for="ImageUrl" class="form-control"
+                       placeholder="Profil resmi URL'sini girin" oninput="updateImagePreview()" />
+            </div>
 
-    <button class="btn btn-primary">Kaydet</button>
+            <div class="col-md-6">
+                <label class="form-label fw-bold">Ad</label>
+                <input type="text" asp-for="FirstName" class="form-control" placeholder="Adınızı girin" />
+            </div>
 
+            <div class="col-md-6">
+                <label class="form-label fw-bold">Soyad</label>
+                <input type="text" asp-for="LastName" class="form-control" placeholder="Soyadınızı girin" />
+            </div>
 
-</form>
+            <div class="col-md-12">
+                <label class="form-label fw-bold">Unvan</label>
+                <input type="text" asp-for="Title" class="form-control" placeholder="Unvanınızı girin" />
+            </div>
 
+            <div class="d-flex justify-content-between mt-4">
+                <a href="/Admin/Instructor/Index" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left"></i> Geri Dön
+                </a>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-person-plus"></i> Kaydet
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function updateImagePreview() {
+        let imageUrl = document.querySelector("[asp-for='ImageUrl']").value;
+        document.getElementById("profilePreview").src = imageUrl || "https://via.placeholder.com/100";
+    }
+</script>

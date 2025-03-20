@@ -1,0 +1,75 @@
+﻿@model UpdateProductDto
+@{
+    ViewData["Title"] = "Ürün Güncelle";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-center text-primary mb-4"> Ürün Güncelle</h3>
+
+        <form method="post">
+            <input type="hidden" asp-for="ProductId" />
+            <div class="row">
+                <!-- Ürün Görseli -->
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Ürün Görseli</label>
+                        <input type="text" asp-for="ImageUrl" class="form-control" placeholder="Ürün görsel URL'sini girin" oninput="previewImage(this.value)" />
+                        <div class="mt-2">
+                            <img id="imagePreview" src="" class="rounded shadow" style="width: 100%; max-height: 200px; object-fit: cover; display: none;" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ürün Bilgileri -->
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Ürün Adı</label>
+                        <input type="text" asp-for="Title" class="form-control" placeholder="Ürün adını girin" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Ürün Açıklaması</label>
+                        <textarea asp-for="Description" class="form-control" rows="4" placeholder="Ürün açıklamasını girin"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Ürün Fiyatı</label>
+                        <input type="number" asp-for="Price" class="form-control" placeholder="Fiyatı girin" />
+                    </div>
+
+                    <!-- Eğitmen Seçimi -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Eğitmen</label>
+                        <select asp-for="InstructorName" asp-items="@ViewBag.ınstructors" class="form-control">
+                            <option disabled >Eğitmen Seçiniz</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Eylemleri -->
+            <div class="d-flex justify-content-between mt-4">
+                <a href="/Admin/Product/Index" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left"></i> Geri Dön
+                </a>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-save"></i> Kaydet
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Görsel Önizleme için JavaScript -->
+<script>
+    function previewImage(url) {
+        var preview = document.getElementById("imagePreview");
+        if (url) {
+            preview.style.display = "block";
+            preview.src = url;
+        } else {
+            preview.style.display = "none";
+        }
+    }
+</script>

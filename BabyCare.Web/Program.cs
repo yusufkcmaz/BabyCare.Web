@@ -1,4 +1,5 @@
 using BabyCare.Web.DataAccess.Settings;
+using BabyCare.Web.Services.InstructorServices;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System.Reflection;
@@ -10,9 +11,15 @@ var builder = WebApplication.CreateBuilder(args);
 //AutoMapper Konfigürasyon
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
-//MongoDB Settings konfigure-baðlantý ayarlarý
-builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("DatabaseSettings"));
-//singleton
+//MongoDB Settings konfigure-baðlantý ayarlarý //singleton
+builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection(nameof(DatabaseSettings)));
+
+
+//Service Konfigürasyonu.
+builder.Services.AddScoped<IInstructorService , InstructorService>();
+
+
+
 builder.Services.AddSingleton<IDataBaseSettings>(sp =>
 
 {
@@ -21,7 +28,7 @@ builder.Services.AddSingleton<IDataBaseSettings>(sp =>
 
 
 
-//singleton
+
 
 
 
@@ -43,6 +50,12 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+//Area Konfigürasyonu.
+app.MapControllerRoute(
+     name: "areas",
+     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+   );
 
 app.MapControllerRoute(
     name: "default",

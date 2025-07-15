@@ -6,5 +6,7 @@
         public string DatabaseName { get; set; }      // Kullanılacak veritabanı adı
         public string ProductCollectionName { get; set; }   // Koleksiyon adı
         public string InstructorCollectionName { get; set; }   // Koleksiyon adı
+         string AboutCollectionName { get; set; }
+
     }
 }

@@ -1,0 +1,30 @@
+﻿@using BabyCare.Web.Dtos.AboutDto
+@model List<ResultAboutDto>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Resim</th>
+            <th>Video</th>
+            <th>Başlık</th>
+            <th>Açıklama</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 1;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td><img src="@item.ImageUrl" alt="Resim" width="100" /></td>
+                    <td><a href="@item.VideoUrl" target="_blank">Video</a></td>
+                    <td>@item.Title</td>
+                    <td>@item.Description</td>
+                </tr>
+                i++;
+            }
+        }
+    </tbody>
+</table>

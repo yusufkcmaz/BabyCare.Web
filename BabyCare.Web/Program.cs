@@ -1,4 +1,6 @@
 using BabyCare.Web.DataAccess.Settings;
+using BabyCare.Web.Services.AboutServices;
+using BabyCare.Web.Services.GenericService;
 using BabyCare.Web.Services.InstructorServices;
 using BabyCare.Web.Services.ProductServices;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,6 +11,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IInstructorService, InstructorService>();
+builder.Services.AddScoped<IAboutService , AboutService>();
+
+
+
 //AutoMapper Konfigürasyon
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
@@ -16,9 +25,9 @@ builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection(nameof(DatabaseSettings)));
 
 
-//Service Konfigürasyonu.
-builder.Services.AddScoped<IInstructorService , InstructorService>();
-builder.Services.AddScoped<IProductService ,ProductService>();
+////Service Konfigürasyonu.
+//builder.Services.AddScoped<IInstructorService , InstructorService>();
+//builder.Services.AddScoped<IProductService ,ProductService>();
 
 
 

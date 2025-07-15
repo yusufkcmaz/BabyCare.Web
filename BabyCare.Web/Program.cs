@@ -1,5 +1,6 @@
 using BabyCare.Web.DataAccess.Settings;
 using BabyCare.Web.Services.AboutServices;
+using BabyCare.Web.Services.BannerService;
 using BabyCare.Web.Services.GenericService;
 using BabyCare.Web.Services.InstructorServices;
 using BabyCare.Web.Services.ProductServices;
@@ -15,6 +16,7 @@ builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IInstructorService, InstructorService>();
 builder.Services.AddScoped<IAboutService , AboutService>();
+builder.Services.AddScoped<IBannerService , BannerService>();
 
 
 

@@ -7,6 +7,7 @@
         public string ProductCollectionName { get; set; }   
         public string InstructorCollectionName { get; set; }
         public string AboutCollectionName { get; set; }
+        public string BannerCollectionName { get; set; }
 
     }
 }

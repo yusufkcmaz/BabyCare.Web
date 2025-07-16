@@ -11,6 +11,7 @@
         public string ContactCollectionName  { get; set; }
         public string EventCollectionName  { get; set; }
         public string GallaryCollectionName  { get; set; }
+        public string ServicesCollectionName  { get; set; }
 
     }
 }

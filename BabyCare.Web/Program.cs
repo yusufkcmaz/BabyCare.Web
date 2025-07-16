@@ -3,6 +3,7 @@ using BabyCare.Web.Services.AboutServices;
 using BabyCare.Web.Services.BannerService;
 using BabyCare.Web.Services.ContactServices;
 using BabyCare.Web.Services.EventService;
+using BabyCare.Web.Services.GallaryServices;
 using BabyCare.Web.Services.GenericService;
 using BabyCare.Web.Services.InstructorServices;
 using BabyCare.Web.Services.ProductServices;
@@ -21,6 +22,7 @@ builder.Services.AddScoped<IAboutService , AboutService>();
 builder.Services.AddScoped<IBannerService , BannerService>();
 builder .Services.AddScoped<IContactService , ContactService>();    
 builder .Services.AddScoped<IEventService , EventService>();
+builder .Services.AddScoped<IGallaryService , GallaryService >();
 
 
 

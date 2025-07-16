@@ -10,6 +10,7 @@
         string BannerCollectionName { get; set; }
         string ContactCollectionName { get; set; }
         string EventCollectionName { get; set; }
+        string GallaryCollectionName { get; set; }
 
     }
 }

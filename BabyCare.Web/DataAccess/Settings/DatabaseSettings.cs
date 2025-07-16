@@ -8,6 +8,7 @@
         public string InstructorCollectionName { get; set; }
         public string AboutCollectionName { get; set; }
         public string BannerCollectionName { get; set; }
+        public string ContactCollectionName  { get; set; }
 
     }
 }

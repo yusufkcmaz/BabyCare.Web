@@ -8,6 +8,7 @@
         public string InstructorCollectionName { get; set; }   // Koleksiyon adı
          string AboutCollectionName { get; set; }
         string BannerCollectionName { get; set; }
+        string ContactCollectionName { get; set; }
 
     }
 }

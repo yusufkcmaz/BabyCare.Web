@@ -32,7 +32,11 @@ namespace BabyCare.Web.Areas.Admin.Controllers
         public async Task<IActionResult> UpdateBanner(string id)
         {
             var banner = await _bannerService.GetByIdAsync(id);
+            //Banner kaydını getirir
+
             var dto = _mapper.Map<UpdateBannerDto>(banner);
+            //Viewde Dto kullanmak için entity dto ya çevirdik.
+
             return View(dto);
         }
 

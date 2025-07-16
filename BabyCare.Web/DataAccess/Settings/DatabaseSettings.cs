@@ -9,6 +9,7 @@
         public string AboutCollectionName { get; set; }
         public string BannerCollectionName { get; set; }
         public string ContactCollectionName  { get; set; }
+        public string EventCollectionName  { get; set; }
 
     }
 }

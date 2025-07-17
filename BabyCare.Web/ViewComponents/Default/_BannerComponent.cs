@@ -1,12 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using BabyCare.Web.Dtos.BannerDto;
+using BabyCare.Web.Services.BannerService;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BabyCare.Web.ViewComponents.Default
 {
-    public class _BannerComponent :ViewComponent
+    public class _BannerComponent (IMapper _mapper , IBannerService _bannerService ):ViewComponent
     {
-        public IViewComponentResult Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View();
+            var banners = await _bannerService.GetAllAsync();
+            var dto = _mapper.Map<List<ResultBannerDto>>(banners);
+            return View(dto);
         }
     }
 }
+ 

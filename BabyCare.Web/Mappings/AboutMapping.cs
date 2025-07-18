@@ -11,7 +11,7 @@ namespace BabyCare.Web.Mappings
         {
             CreateMap<CreateAboutDto, About>().ReverseMap();
             CreateMap<ResultAboutDto, About>().ReverseMap();
-            CreateMap<UpdateBannerDto , Banner>().ReverseMap();
+            CreateMap<UpdateAboutDto ,About>().ReverseMap();
         }
     }
 }

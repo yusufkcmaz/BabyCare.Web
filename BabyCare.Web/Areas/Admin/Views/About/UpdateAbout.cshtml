@@ -1,13 +1,16 @@
-﻿@model BabyCare.Web.Dtos.AboutDto.CreateAboutDto
+﻿
+
+@model BabyCare.Web.Dtos.AboutDto.UpdateAboutDto
 
 @{
-    ViewData["Title"] = "Hakkımızda Oluştur";
+    ViewData["Title"] = "Hakkımızda Güncelle";
 }
 
 <div class="container mt-4">
-    <h2 class="mb-4 text-primary border-bottom pb-2">Hakkımızda Bilgisi Ekle</h2>
+    <h2 class="text-primary border-bottom pb-2 mb-4">Hakkımızda Güncelle</h2>
 
-    <form asp-action="CreateAbout" method="post" class="row g-3">
+    <form asp-action="UpdateAbout" method="post" class="row g-3">
+        <input type="hidden" asp-for="AboutId" />
 
         <div class="col-md-6">
             <label asp-for="Title" class="form-label">Başlık</label>
@@ -68,7 +71,9 @@
         </div>
 
         <div class="col-12 mt-3">
-            <button type="submit" class="btn btn-primary px-4">Kaydet</button>
+            <button type="submit" class="btn btn-primary px-4">
+                <i class="bi bi-save"></i> Güncelle
+            </button>
         </div>
     </form>
 </div>

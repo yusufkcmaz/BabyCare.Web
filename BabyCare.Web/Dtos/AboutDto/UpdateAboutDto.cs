@@ -1,12 +1,7 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson;
-
-namespace BabyCare.Web.DataAccess.Entities
+﻿namespace BabyCare.Web.Dtos.AboutDto
 {
-    public class About
+    public class UpdateAboutDto
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
         public string AboutId { get; set; }
         public string? ImageUrl { get; set; }
         public string? VideoUrl { get; set; }
@@ -19,6 +14,5 @@ namespace BabyCare.Web.DataAccess.Entities
         public string Titles4 { get; set; }
         public string Titles5 { get; set; }
         public string Titles6 { get; set; }
-
     }
 }

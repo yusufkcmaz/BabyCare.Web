@@ -1,0 +1,68 @@
+﻿@model BabyCare.Web.Dtos.ContactDtos.CreateContactDto
+
+@{
+    ViewData["Title"] = "İletişim ekle";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-header bg-primary text-white text-center rounded-top-3">
+                    <h4 class="mb-0">Add Contact Information</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="AddContact" method="post">
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label">Title</label>
+                            <input asp-for="Title" class="form-control" placeholder="Enter title" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">Title</label>
+                            <input asp-for="Description" class="form-control" placeholder="Enter title" />
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+
+
+                        <div class="mb-3">
+                            <label asp-for="Adress" class="form-label">Address</label>
+                            <textarea asp-for="Adress" class="form-control" rows="3" placeholder="Enter address"></textarea>
+                            <span asp-validation-for="Adress" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="PhoneNum" class="form-label">Phone Number</label>
+                            <input asp-for="PhoneNum" class="form-control" placeholder="+90 (___) ___ __ __" />
+                            <span asp-validation-for="PhoneNum" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label">Email</label>
+                            <input asp-for="Email" type="email" class="form-control" placeholder="example@domain.com" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="MapUrl" class="form-label">Google Map URL</label>
+                            <input asp-for="MapUrl" class="form-control" placeholder="https://maps.google.com/..." />
+                            <span asp-validation-for="MapUrl" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg rounded-pill">
+                                <i class="bi bi-save"></i> Save Contact
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

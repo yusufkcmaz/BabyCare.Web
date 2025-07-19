@@ -8,5 +8,6 @@
         public string Email { get; set; }
         public string MapUrl { get; set; }
         public string Title { get; set; }
+        public string Description { get; set; }
     }
 }

@@ -1,0 +1,53 @@
+﻿@using BabyCare.Web.Dtos.ServicesDtos
+@model List<ResultServicesDto>
+@{
+    ViewData["Title"] = "Hizmetlerimiz";
+}
+
+
+<div class="container mt-4">
+    <h2 class="text-primary border-bottom pb-2 mb-4">Hizmetlerimiz Düzenleme</h2>
+
+    <table class="table table-hover table-bordered align-middle">
+        <tr>
+        <td>#</td>
+        <td>Başlık</td>
+        <td>Açıklama</td>
+        <td>ikon</td>
+        <td>İşlemler</td>
+
+    </tr>
+
+    @foreach(var item in Model)
+    {
+        <tr>
+            <th>#</th>
+            <th>@item.Title</th>
+            <th>@item.Descripton</th>
+            <th>@item.Icon</th>
+
+            <td class="text-end">
+
+                <a href="@Url.Action("AddService", "Services", new { area = "Admin", id = item.ServicesId })"
+                   class="btn btn-sm btn-success">
+                    <i class="bi bi-pencil"></i> Ekle
+                </a>
+
+                <a href="@Url.Action("UpdateServıce", "Services", new { area = "Admin", id = item.ServicesId })"
+                   class="btn btn-sm btn-warning">
+                    <i class="bi bi-pencil"></i> Güncelle
+                </a>
+
+                <a href="@Url.Action("DeleteServıce", "Services", new { area = "Admin", id = item.ServicesId })"
+                   class="btn btn-sm btn-danger"
+                   onclick="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">
+                    <i class="bi bi-trash"></i> Sil
+                </a>
+            </td>
+
+
+
+        </tr>
+    }
+</table>
+</div>

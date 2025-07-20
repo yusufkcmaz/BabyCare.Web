@@ -1,0 +1,59 @@
+﻿@using BabyCare.Web.Dtos.ServicesDtos
+@model CreateServicesDto
+@{
+    ViewData["Title"] = "AddService";
+}
+   
+<div class="container mt-5">
+    <div class="card shadow-lg p-5 rounded-4 border-primary">
+        <h3 class="text-center text-primary mb-4 fw-bold">Hizmetler Ekle</h3>
+
+        <form asp-action="AddService" method="post" class="needs-validation" novalidate>
+            <div class="mb-4">
+                <label asp-for="Title" class="form-label fw-semibold">Hizmet Başlığı</label>
+                <input asp-for="Title" class="form-control border-primary" placeholder="Hizmet başlığını giriniz" required />
+                <div class="invalid-feedback">
+                    Lütfen hizmet başlığını giriniz.
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="Icon" class="form-label fw-semibold">İkon (CSS sınıfı)</label>
+                <input asp-for="Icon" class="form-control border-primary" placeholder="Örn: fas fa-cogs" required />
+                <div class="form-text text-muted">Font Awesome ikon sınıfı formatında giriniz.</div>
+                <div class="invalid-feedback">
+                    Lütfen ikon CSS sınıfını giriniz.
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="Descripton" class="form-label fw-semibold">Açıklama</label>
+                <textarea asp-for="Descripton" rows="5" class="form-control border-primary" placeholder="Hizmet hakkında detaylı açıklama" required></textarea>
+                <div class="invalid-feedback">
+                    Lütfen açıklamayı giriniz.
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 py-3 fw-bold text-white">Kaydet</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Bootstrap 5 validation örneği
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms).forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+}

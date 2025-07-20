@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BabyCare.Web.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class ServicesController(IMapper _mapper , IServicesService _servicesService ) : Controller
     {
         public async Task<IActionResult> Index()
@@ -26,11 +27,11 @@ namespace BabyCare.Web.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> AddService(CreateServicesDto createServices)
         {
-            var servıs = _mapper.Map<BabyCare.Web.DataAccess.Entities.Services>(createServices);
+            var servıs =  _mapper.Map<BabyCare.Web.DataAccess.Entities.Services>(createServices);
             var values = _servicesService.AddAsync(servıs);
-            return View(values);
+            return RedirectToAction("Index");
         }
-        public async Task<IActionResult> UpdateService(string id)
+        public async Task<IActionResult> UpdateServıce(string id)
         {
             var servıs = await _servicesService.GetByIdAsync(id);
             var dto = _mapper.Map<UpdateServicesDto>(servıs);

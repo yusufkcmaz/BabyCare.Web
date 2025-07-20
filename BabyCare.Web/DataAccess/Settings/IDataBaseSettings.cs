@@ -12,6 +12,7 @@
         string EventCollectionName { get; set; }
         string GallaryCollectionName { get; set; }
         string ServicesCollectionName { get; set; }
+        string MessageCollectionName { get; set; }
 
     }
 }

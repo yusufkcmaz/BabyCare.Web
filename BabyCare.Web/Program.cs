@@ -6,6 +6,7 @@ using BabyCare.Web.Services.EventService;
 using BabyCare.Web.Services.GallaryServices;
 using BabyCare.Web.Services.GenericService;
 using BabyCare.Web.Services.InstructorServices;
+using BabyCare.Web.Services.MessageService;
 using BabyCare.Web.Services.ProductServices;
 using BabyCare.Web.Services.ServicesService;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,6 +26,7 @@ builder .Services.AddScoped<IContactService , ContactService>();
 builder .Services.AddScoped<IEventService , EventService>();
 builder .Services.AddScoped<IGallaryService , GallaryService >();
 builder .Services.AddScoped<IServicesService , ServicesService >();
+builder .Services.AddScoped<IMessageService , MessageService >();
 
 
 

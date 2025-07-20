@@ -1,0 +1,41 @@
+﻿@using BabyCare.Web.DataAccess.Entities
+@model List<Message>
+@{
+    ViewData["Title"] = "Gelen Mesajlar";
+}
+<h2 class="text-primary border-bottom pb-2 mb-4">Gelen mesajlar Bilgileri</h2>
+<table class="table table-bordered align-middle">
+    <tr>
+        <td>#</td>
+        <td>Gönderen ad</td>
+        <td>Gönderen mail</td>
+        <td>Gönderen mesajı</td>
+        <td>Gönderen tarihi</td>
+        <td>işlemler </td>
+    </tr>
+
+    @foreach(var item in Model)
+    {
+        <tr>
+            <th>#</th>
+            <th>@item.Name</th>
+            <th>@item.Email</th>
+            <th>@item.Content</th>
+            <th>@item.CreatedAt</th>
+
+            <th>
+                <a href="@Url.Action("DeleteMessage", "Messageinfo", new { area = "Admin", id = item.Id })"
+                   class="btn btn-sm btn-danger"
+                   onclick="return confirm('Bu mesaj bilgisini silmek istediğinize emin misiniz?');">
+                    <i class="bi bi-trash"></i> Sil
+                </a>
+            </th>
+
+
+        </tr>
+    }
+
+
+
+</table>
+

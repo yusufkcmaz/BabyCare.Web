@@ -1,7 +1,7 @@
 ﻿namespace BabyCare.Web.Dtos.ProductDtos
 {
     public class ResultProductDto
-    {
+    { 
         public string ProductId { get; set; } // FIELD (SQL'de PRIMARY KEY gibi)
         public string Title { get; set; }  // FIELD
         public string Description { get; set; }

@@ -2,17 +2,19 @@
 using BabyCare.Web.DataAccess.Entities;
 using BabyCare.Web.Dtos.AboutDto;
 using BabyCare.Web.Dtos.ContactDtos;
+using BabyCare.Web.Dtos.ProductDtos;
 using BabyCare.Web.Dtos.ServicesDtos;
 using BabyCare.Web.Services.AboutServices;
 using BabyCare.Web.Services.ContactServices;
 using BabyCare.Web.Services.MessageService;
+using BabyCare.Web.Services.ProductServices;
 using BabyCare.Web.Services.ServicesService;
 using Humanizer;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BabyCare.Web.Controllers
 {
-    public class UINavbarController(IMapper _mapper , IContactService _contactService , IMessageService _messageService , IAboutService _aboutService , IServicesService _servicesService): Controller
+    public class UINavbarController(IMapper _mapper , IContactService _contactService , IMessageService _messageService , IAboutService _aboutService , IServicesService _servicesService , IProductService _productService): Controller
     {
         public async Task<IActionResult> Contact()
         {
@@ -44,6 +46,15 @@ namespace BabyCare.Web.Controllers
             var service = await _servicesService.GetAllAsync();
             var dto = _mapper.Map<List<ResultServicesDto>>(service);
             return View(dto);
+        }
+
+        public async Task<IActionResult> Product()
+        {
+            var product = await _productService.GetAllAsync();
+            var dto = _mapper.Map<List<ResultProductDto>>(product);
+            return View(dto);
+
+
         }
 
 

@@ -2,6 +2,7 @@
 {
     public class ResultEventDto
     {
+        public string EventId { get; set; }
         public string Title { get; set; }
         public DateTime Eventdate { get; set; }
         public string EventName { get; set; }

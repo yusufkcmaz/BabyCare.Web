@@ -9,13 +9,14 @@ namespace BabyCare.Web.Areas.Admin.Controllers
     [Area("Admin")]
     public class EventController (IEventService _eventService , IMapper _mapper): Controller
     {
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var values = _eventService.GetAllAsync();
-            var dto = _mapper.Map < List<ResultEventDto>>(values);
+            var values = await _eventService.GetAllAsync();
+            var dto = _mapper.Map<List<ResultEventDto>>(values);
             return View(dto);
         }
 
+        [HttpGet]
         public async Task<IActionResult> UpdadeEvent(string id)
         {
             var evet = await _eventService.GetByIdAsync(id);
@@ -24,7 +25,7 @@ namespace BabyCare.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateEvent(UpdateEventDto updateEvent)
+        public async Task<IActionResult> UpdadeEvent(UpdateEventDto updateEvent)
         {
             var events = _mapper.Map<Event>(updateEvent);
             await _eventService.UpdateAsync(events.EventId , events);

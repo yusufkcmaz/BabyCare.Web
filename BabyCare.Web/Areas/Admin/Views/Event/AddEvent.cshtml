@@ -1,0 +1,53 @@
+﻿@using BabyCare.Web.Dtos.EventDtos
+@model CreateEventDto
+
+
+@{
+    ViewData["Title"] = "Etkinlik Ekle";
+}
+
+<div class="container mt-5 "> 
+    <h2 class="fw-bold mb-4">Yeni etkinlik ekle </h2>
+    <form asp-action="AddEvent" method="post" class="shadow-sm p-4 rounded bg-light">
+        <div class="mb-3">
+            <label asp-for="Title" class="form-label">Başlık</label>
+             <input asp-for="Title" class="form-control" placeholder="Başlığınızı Girin" />
+            <span asp-validation-for="Title" class="text-danger"></span> 
+        </div>
+
+        <div class="mb-4">
+            <label asp-for="EventName" class="form-label">Etkinlik Adı</label>
+            <input asp-for="EventName" class="form-control" placeholder="Etkinlik Adı Girin"/>
+        </div>
+
+        <div class="mb-4">
+            <label asp-for="Eventdate" class="form-label">Etkinlik Tarihi</label>
+            <input asp-for="Eventdate" class="form-control" placeholder="Tarihi giriniz" />
+
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">Açıklama</label>
+            <textarea asp-for="Description" rows="3" class="form-control" placeholder="Açıklama giriniz"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+
+        <div class="mb-4">
+            <label asp-for="Imageurl" class="form-label">Etkinlik Görseli</label>
+            <input asp-for="Imageurl" class="form-control" placeholder="Görsel Url Giriniz" />
+
+        </div>
+
+        <div class="d-flex justify-content-end">
+            <a asp-action="Index" class="btn btn-secondary me-2">İptal</a>
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </div>
+
+
+
+    </form>
+
+
+
+</div>

@@ -1,12 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using BabyCare.Web.Dtos.TestimonialDtos;
+using BabyCare.Web.Services.TestimonialServices;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BabyCare.Web.ViewComponents.Default
 {
-    public class _TestimonialComponent : ViewComponent
+    public class _TestimonialComponent(IMapper _mapper , ITestimonialService _testimonialService) : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View();
+            var values = await _testimonialService.GetAllAsync();
+            var dto = _mapper.Map<ResultTestimonialDto>(values);
+            return View(dto);
         }
     }
 }

@@ -1,12 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using BabyCare.Web.Dtos.EventDtos;
+using BabyCare.Web.Services.EventService;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BabyCare.Web.ViewComponents.Default
 {
-    public class _EventComponent : ViewComponent
+    public class _EventComponent (IMapper _mapper , IEventService _eventService): ViewComponent
     {
-        public IViewComponentResult Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View();  
+            var values =  await _eventService.GetAllAsync();
+            var dto = _mapper.Map<List<ResultEventDto>> (values);
+            return View(dto);  
         }
     }
 }

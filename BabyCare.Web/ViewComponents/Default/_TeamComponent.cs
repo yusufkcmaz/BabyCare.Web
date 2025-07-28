@@ -1,13 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using BabyCare.Web.Dtos.InstructorDtos;
+using BabyCare.Web.Services.InstructorServices;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.Operations;
 
 namespace BabyCare.Web.ViewComponents.Default
 {
-    public class _TeamComponent : ViewComponent
+    public class _TeamComponent(IMapper _mapper  , IInstructorService _ınstructorService) : ViewComponent
 
     {
-        public IViewComponentResult Invoke()
+        public async  Task<IViewComponentResult> InvokeAsync()
         {
-            return View();
+            var values = await _ınstructorService.GetAllInstructorAsync();
+            var dto = _mapper.Map<List<ResultInstructorDto>>(values);
+            return View(dto);
         }
     }
 }

@@ -1,12 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using BabyCare.Web.Dtos.ServicesDtos;
+using BabyCare.Web.Services.ServicesService;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BabyCare.Web.ViewComponents.Default
 {
-    public class _ServiceComponent:ViewComponent
+    public class _ServiceComponent (IServicesService _servicesService , IMapper _mapper):ViewComponent
     {
-        public IViewComponentResult Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View();
+            var servıcess = await _servicesService.GetAllAsync();
+            var dto = _mapper.Map<List<ResultServicesDto>>(servıcess);
+            return View(dto);
         }
     }
 }

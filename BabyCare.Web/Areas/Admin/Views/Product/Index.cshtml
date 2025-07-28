@@ -16,6 +16,7 @@
                     <th>Açıklama</th>
                     <th>Fiyat</th>
                     <th>Eğitmen</th>
+                    <th>Eğitmen Görseli</th>
                     <th>İşlemler</th>
                 </tr>
             </thead>
@@ -34,6 +35,8 @@
                         <td>@item.Description</td>
                         <td>@item.Price ₺</td>
                         <td>@item.InstructorName</td>
+                        <td>@item.InstructorImage</td>
+
                         <td>
                             <a href="/Admin/Product/DeleteProduct/@item.ProductId" class="btn btn-danger">Sil</a>
                             <a href="/Admin/Product/UpdateProduct/@item.ProductId" class="btn btn-info">Güncelle</a>

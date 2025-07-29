@@ -1,7 +1,7 @@
 ﻿namespace BabyCare.Web.Dtos.TestimonialDtos
 {
     public class ResultTestimonialDto
-    {
+    { 
         public string TestimonialId { get; set; }
         public string HeadName { get; set; }
         public string FirstName { get; set; }

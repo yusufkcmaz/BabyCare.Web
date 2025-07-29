@@ -13,7 +13,7 @@
         public string GallaryCollectionName  { get; set; }
         public string ServicesCollectionName  { get; set; }
         public string MessageCollectionName  { get; set; }
-        public string TestimonialCollectionName  { get; set; }
+        public string TestimonialCollectionName { get; set; }
 
     }
 }

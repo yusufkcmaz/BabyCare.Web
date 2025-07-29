@@ -6,7 +6,7 @@ namespace BabyCare.Web.Services.TestimonialServices
 {
     public class TestimonialService : GenericService<Testimonial>, ITestimonialService
     {
-        public TestimonialService(IDataBaseSettings settings) : base(settings , settings.ServicesCollectionName)
+        public TestimonialService(IDataBaseSettings settings) : base(settings , settings.TestimonialCollectionName)
         {
         }
     }

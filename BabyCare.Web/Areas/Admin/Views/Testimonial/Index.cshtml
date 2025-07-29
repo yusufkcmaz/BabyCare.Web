@@ -1,4 +1,5 @@
-﻿@model tes
+﻿@using BabyCare.Web.Dtos.TestimonialDtos
+@model List<ResultTestimonialDto>
 
 @{
     ViewData["Title"] = "Referanslar";
@@ -23,19 +24,19 @@
 
             @foreach (var item in Model)
             {
-            
+
                 <tr>
-                  
+
                     <td><img src="@item.ImageUrl" style="height:75px;width:75px" />  </td>
                     <td>@item.Title</td>
+                    <td>@item.ImageUrl</td>
                     <td>@item.Description</td>
-                    <td>@item.Price ₺</td>
-                    <td>@item.InstructorName</td>
-                    <td>@item.InstructorImage</td>
+                    <td>@item.Stars</td>
+                    <td>@item.Title</td>
 
                     <td>
-                        <a href="/Admin/Product/DeleteProduct/@item.ProductId" class="btn btn-danger">Sil</a>
-                        <a href="/Admin/Product/UpdateProduct/@item.ProductId" class="btn btn-info">Güncelle</a>
+                        <a href="/Admin/Testimonial/DeleteTest/@item.TestimonialId" class="btn btn-danger">Sil</a>
+                        <a href="/Admin/Testimonial/UpdateTest/@item.TestimonialId" class="btn btn-info">Güncelle</a>
                     </td>
                 </tr>
 
@@ -43,13 +44,8 @@
             }
 
         </table>
-        <a href="/Admin/Product/CreateProduct" class="btn btn-primary">Yeni Ürün</a>
+        <a href="/Admin/Testimonial/CreateTest" class="btn btn-primary">Referans ekle</a>
     </div>
 </div>
 
-        </table>
-
-    </div>
-
-
-</div>
+   

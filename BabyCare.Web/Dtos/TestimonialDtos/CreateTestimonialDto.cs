@@ -1,5 +1,5 @@
 ﻿namespace BabyCare.Web.Dtos.TestimonialDtos
-{
+{ 
     public class CreateTestimonialDto
     {
         public string HeadName { get; set; }

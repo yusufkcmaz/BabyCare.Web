@@ -1,0 +1,101 @@
+﻿@using BabyCare.Web.Dtos.LayoutInfoDtos
+@model UpdateLayoutInfoDto
+@{
+    ViewData["Title"] = "Güncelle Footer";
+}
+
+
+<div class="container mt-5 ">
+    <h2 class="fw-bold mb-4">Footer Düzenle </h2>
+    <form asp-action="UpdateFooter" method="post" class="shadow-sm p-4 rounded bg-light">
+        <input type="hidden" asp-for="Id" />
+
+
+        <div class="mb-3">
+            <label asp-for="Location" class="form-label">Konum</label>
+            <input asp-for="Location" class="form-control" placeholder="Konumunuzu  Girin" />
+            <span asp-validation-for="Location" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">Açıklama</label>
+            <textarea asp-for="Description" rows="3" class="form-control" placeholder="Açıklama giriniz"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+
+
+        <div class="mb-4">
+            <label asp-for="PhoneNumber" class="form-label">Telefon numarası</label>
+            <input asp-for="PhoneNumber" class="form-control" placeholder="Numara Girin" />
+        </div>
+
+        <div class="mb-4">
+            <label asp-for="Email" class="form-label">Email </label>
+            <input asp-for="Email" class="form-control" placeholder="Mail adresi giriniz" />
+
+        </div>
+
+
+        <div class="mb-4">
+            <label asp-for="Service" class="form-label">Hizmetler saati</label>
+            <input asp-for="Service" class="form-control" placeholder="Hizmetler" />
+
+        </div>
+
+        <div class="mb-4">
+            <label asp-for="SaturdayHours" class="form-label">Haftaiçi saati</label>
+            <input asp-for="SaturdayHours" class="form-control" placeholder="Haftaiçi çalışma saati" />
+
+        </div>
+
+        <div class="mb-4">
+            <label asp-for="WeekdayHours" class="form-label">Haftasonu saati</label>
+            <input asp-for="WeekdayHours" class="form-control" placeholder="Haftasonu çalışma saati" />
+
+        </div>
+
+
+        <div class="mb-4">
+            <label asp-for="FacebookUrl" class="form-label">Facebook Adresi</label>
+            <input asp-for="FacebookUrl" class="form-control" placeholder="Hesap adresi girin" />
+
+        </div>
+
+
+        <div class="mb-4">
+            <label asp-for="InstagramUrl" class="form-label">İnstagram Adresi</label>
+            <input asp-for="InstagramUrl" class="form-control" placeholder="Hesap adresi girin" />
+
+        </div>
+
+
+        <div class="mb-4">
+            <label asp-for="TwitterUrl" class="form-label">X Adresi</label>
+            <input asp-for="TwitterUrl" class="form-control" placeholder="Hesap adresi girin" />
+
+        </div>
+
+
+        <div class="mb-4">
+            <label asp-for="LinkedinUrl" class="form-label">Linkedin Adresi</label>
+            <input asp-for="LinkedinUrl" class="form-control" placeholder="Hesap adresi girin" />
+
+        </div>
+
+
+
+
+        <div class="d-flex justify-content-end">
+            <a asp-action="Index" class="btn btn-secondary me-2">İptal</a>
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </div>
+
+
+
+    </form>
+
+
+
+</div>
+

@@ -10,7 +10,7 @@ namespace BabyCare.Web.ViewComponents.Default
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var values = await _testimonialService.GetAllAsync();
-            var dto = _mapper.Map<ResultTestimonialDto>(values);
+            var dto = _mapper.Map<List<ResultTestimonialDto>>(values);
             return View(dto);
         }
     }

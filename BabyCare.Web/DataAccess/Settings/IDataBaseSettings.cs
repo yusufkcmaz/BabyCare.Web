@@ -14,6 +14,7 @@
         string ServicesCollectionName { get; set; }
         string MessageCollectionName { get; set; }
         string TestimonialCollectionName { get; set; }
+        string LayoutInfoCollectionName { get; set; }
 
     }
 }
